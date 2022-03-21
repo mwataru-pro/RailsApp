@@ -1,22 +1,20 @@
 class HelloController < ApplicationController
   protect_from_forgery
-
   def index
     if request.post? then
       @title = 'Result'
-      @msg = 'you typed: ' + params['input1'] + '.'
-      @value = params['input1']
+      if params['s1'] then
+        @msg = 'you selected: '
+        for val in params['s1']
+          @msg += val + ' '
+        end
+      else
+        @msg = 'not selected...'
+      end
     else
       @title = 'Index'
-      @msg = 'type text...'
-      @value = ''
+      @msg = 'select radio button...'
     end
-    # if params['msg'] != nil then
-    #   @title = params['msg']
-    # else
-    #   @title = 'index'
-    # end
-    # @msg = 'title is redirect smaple...'
   end
 
   def other

@@ -1,18 +1,14 @@
 class HelloController < ApplicationController
   def index
     if params['msg'] != nil then
-      msg = 'Hello, ' + params['msg'] + '!'
+      @title = params['msg']
     else
-      msg = 'this is sample page.'
+      @title = 'index'
     end
-    html = '
-    <html>
-    <body>
-      <h1>Sample Page</h1>
-      <p>' + msg + '</p>
-    </body>
-    </html>
-    '
-    render html: html.html_safe
+    @msg = 'title is redirect smaple...'
+  end
+
+  def other
+    redirect_to action: :index, params: {'msg': 'from other page'}
   end
 end

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'cards/index'
+  get 'cards/show'
+  get 'cards/add'
+  get 'cards/edit'
   get 'people/index'
   get 'people', to: 'people#index'
   get 'people/add'
@@ -18,4 +22,13 @@ Rails.application.routes.draw do
   post 'msgboard', to: 'msgboard#index'
   get 'msgboard/index'
   post 'msgboard/index'
+
+  get 'cards/index'
+  get 'cards', to: 'cards#index'
+  get 'cards/add'
+  post 'cards/add'
+  get 'cards/:id', to: 'cards#show'
+  get 'cards/edit/:id', to: 'cards#edit'
+  patch 'cards/edit/:id', to: 'cards#edit'
+  get 'cards/delete/:id', to: 'cards#delete'
 end

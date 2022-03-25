@@ -2,7 +2,7 @@ class CreateQuestions < ActiveRecord::Migration[6.1]
   def change
     create_table :questions do |t|
       t.text :title
-      t.text :context
+      t.text :content
       t.text :name
       t.boolean :finished
 

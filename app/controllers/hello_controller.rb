@@ -11,4 +11,6 @@ class HelloController < ApplicationController
   def other
     redirect_to action: :index, params: {'msg': 'from other page'}
   end
+
+  
 end

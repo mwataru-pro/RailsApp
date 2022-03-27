@@ -10,12 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_25_093011) do
+ActiveRecord::Schema.define(version: 2022_03_26_083521) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id"
     t.text "content"
     t.text "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "board_messages", force: :cascade do |t|
+    t.text "content"
+    t.integer "board_user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "board_users", force: :cascade do |t|
+    t.text "nickname"
+    t.integer "account_id"
+    t.text "memo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

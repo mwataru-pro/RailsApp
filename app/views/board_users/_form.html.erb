@@ -1,32 +1,25 @@
-<%= form_with(model: board_user) do |form| %>
-  <% if board_user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(board_user.errors.count, "error") %> prohibited this board_user from being saved:</h2>
+<h1 class="display-4 text-primary">
+  "<%=@board_user.nickname %>"</h1>
+<table class="table">
+  <tr>
+    <th>Nickname</th>
+    <td><%= @board_user.nickname %></td>
+  </tr>
+  <tr>
+    <th>Id</th>
+    <td><%= @board_user.id %></td>
+  </tr>
+  <tr>
+    <th>Created at</th>
+    <td><%= @board_user.created_at %></td>
+  </tr>
+  <tr>
+    <th>Memo</th>
+    <td><%= @board_user.memo %></td>
+  </tr>
+</table>
 
-      <ul>
-        <% board_user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :nickname %>
-    <%= form.text_area :nickname %>
-  </div>
-
-  <div class="field">
-    <%= form.label :account_id %>
-    <%= form.number_field :account_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :memo %>
-    <%= form.text_area :memo %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<hr>
+<%= link_to '<< Back', controller: :board_messages %>
+<hr>
+<div>copyright SYODA-Tuyano 2020.</div>
